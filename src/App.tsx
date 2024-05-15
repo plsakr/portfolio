@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState, useRef, useLayoutEffect, useEffect} from "react";
-import {MainNavComponent, NavBar} from "@/components/NavBar.tsx";
+import {MainNavComponent} from "@/components/NavBar.tsx";
 import { Links } from './pages/Links';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {Skills} from "@/pages/Skills.tsx";

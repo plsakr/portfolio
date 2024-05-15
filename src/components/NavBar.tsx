@@ -1,25 +1,29 @@
 import {Briefcase, GitPullRequestCreateArrow, GraduationCap, Link} from "lucide-react";
 import {cn} from "@/lib/utils.ts";
 
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect, useRef, MouseEvent} from 'react';
 
 // Hamburger Menu Component
 const HamburgerMenu = (props: NavBarProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Close the menu if the user clicks outside of it
   useEffect(() => {
-    const handleClickOutside = (event: { target: any; }) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
 
     // Bind the event listener
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       // Unbind the event listener on clean up
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuRef]);
