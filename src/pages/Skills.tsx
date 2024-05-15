@@ -138,14 +138,14 @@ const Skills = forwardRef<HTMLDivElement>(function Skills(_props, ref) {
     <div className="flex flex-col items-center justify-center md:h-full left-0 right-0 md:w-[40em] mx-auto"
          ref={ref}>
       <h1 className='text-4xl md:text-5xl text-white font-mono mr-auto'>Education</h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 mr-auto md:ml-auto gap-6 my-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 mr-auto relative'>
         {educationEntries.map((entry, index) => (
           <EducationSection key={index} title={entry.title} institution={entry.institution} duration={entry.duration}
                             description={entry.description}/>
         ))}
       </div>
-      <h1 className='text-4xl md:text-5xl text-white font-mono mr-auto'>Skills</h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 mr-auto md:ml-auto gap-6 my-4'>
+      <h1 className='text-4xl md:text-5xl text-white mt-2 font-mono mr-auto'>Skills</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 mr-auto relative'>
         <SkillSection title={"Programming Languages"} items={languages}/>
         <SkillSection title={"Technical Expertise"} items={technicalExpertise}/>
         <SkillSection title="Frameworks & Libraries" items={frameworks}/>
