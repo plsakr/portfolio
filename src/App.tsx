@@ -5,6 +5,7 @@ import { Links } from './pages/Links';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {Skills} from "@/pages/Skills.tsx";
 import {Experience} from "@/pages/Experience.tsx";
+import {Projects} from "@/pages/Projects.tsx";
 
 const dynamicChildFactory = (classNames: string) => (child: React.FunctionComponentElement<{ classNames: string; }>) =>
   React.cloneElement(child, {
@@ -41,7 +42,7 @@ function App() {
   const pages = {
     links: <Links ref={nodeRefs.links} />,
     education: <Skills ref={nodeRefs.education}/>,
-    projects: <Links ref={nodeRefs.projects}/>,
+    projects: <Projects ref={nodeRefs.projects}/>,
     experience: <Experience ref={nodeRefs.experience}/>,
   };
 

@@ -30,7 +30,7 @@ const ExperienceEntry: React.FC<ExperienceEntryProps> = ({ title, company, durat
           <DialogContent>
             <DialogHeader>
               <DialogTitle>{title}</DialogTitle>
-              <DialogDescription>{description.split('\n').map((text, _) => <p>{text}</p>)}</DialogDescription>
+              <DialogDescription>{description.split('\n').map((text) => <p>{text}</p>)}</DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>
