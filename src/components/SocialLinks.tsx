@@ -4,7 +4,7 @@ import LinkedInLogo from '/LI-In-Bug.png';
 function SocialLinks() {
 
   return (
-    <div className='mt-2 flex flex-row gap-4'>
+    <div className='pl-12 md:px-0 mt-2 flex flex-row gap-4'>
       <a href="https://github.com/plsakr" target="_blank" rel="noreferrer" className="text-white">
         <img src={GitHubLogo} alt="GitHub Logo" className="w-8 h-8 inline-block" />
       </a>

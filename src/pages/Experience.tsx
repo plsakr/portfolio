@@ -29,8 +29,8 @@ const ExperienceEntry: React.FC<ExperienceEntryProps> = ({ title, company, durat
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>{title}</DialogTitle>
-              <DialogDescription>{description.split('\n').map((text) => <p>{text}</p>)}</DialogDescription>
+              <DialogTitle className='text-xl'>{title}</DialogTitle>
+              <DialogDescription className='text-md'>{description.split('\n').map((text) => <p>{text}</p>)}</DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>
@@ -71,9 +71,9 @@ const Experience = forwardRef<HTMLDivElement>(function Experience(_props, ref) {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center h-full left-0 right-0 w-[40em] mx-auto absolute" ref={ref}>
-      <h1 className='text-5xl text-white font-mono mr-auto'>Experience</h1>
-      <div className='grid grid-cols-2 gap-6 mt-4 relative'>
+    <div className="flex flex-col items-center justify-center md:h-full left-0 right-0 md:w-[40em] mx-auto" ref={ref}>
+      <h1 className='text-4xl md:text-5xl font-mono mr-auto'>Experience</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 mr-auto relative'>
         {experienceEntries.map((entry, index) => (
           <ExperienceEntry key={index} title={entry.title} company={entry.company} duration={entry.duration} description={entry.description} />
         ))}

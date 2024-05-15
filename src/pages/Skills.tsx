@@ -29,13 +29,17 @@ interface SkillSectionProps {
 
 const SkillSection: React.FC<SkillSectionProps> = ({ title, items }) => {
   return (
-    <div className='border rounded border-purple-200 p-2'>
-      <h2 className='text-xl text-purple-200'>{title}</h2>
-      <ul>
-        {items.map((item, index) => (
-          <SkillItem key={index} label={item.label} icon={item.icon} />
-        ))}
-      </ul>
+    <div className='relative max-w-[20em]'>
+      <div className='bg-white h-full p-2 z-10 relative'>
+        <h2 className='text md:text-xl text-purple-200'>{title}</h2>
+        <ul>
+          {items.map((item, index) => (
+            <SkillItem key={index} label={item.label} icon={item.icon}/>
+          ))}
+        </ul>
+      </div>
+      <div
+        className={`absolute left-1.5 top-1.5 h-full w-full z-0 bg-gradient-to-r from-blue-400 to-red-400 via-purple-400 via-20%`}/>
     </div>
   );
 };
@@ -45,9 +49,9 @@ interface SkillItemProps {
   icon: ReactNode;
 }
 
-const SkillItem: React.FC<SkillItemProps> = ({ label, icon = <Terminal className='w-8 h-8' /> }) => {
+const SkillItem: React.FC<SkillItemProps> = ({label, icon = <Terminal className='w-8 h-8' /> }) => {
   return (
-    <li className='flex p-1 gap-3 text-xl'>
+    <li className='flex p-1 gap-3 text md:text-lg  text-black'>
       {icon}
       {label}
     </li>
@@ -64,16 +68,17 @@ interface EducationSectionProps {
 
 const EducationSection: React.FC<EducationSectionProps> = ({ title, institution, duration, description }) => {
   return (
-    <div className='border rounded border-blue-200 p-2'>
-      <h2 className='text-xl text-blue-200'>{title}</h2>
-      <h3 className='text-lg text-purple-200'>{institution}</h3>
-      <p className='text-md text-purple-200'>{duration}</p>
-      <p className='text-md text-purple-200'>{description}</p>
+    <div className='relative max-w-[20em]'>
+      <div className='left-0 top-0 border relative bg-white z-10'>
+        <h2 className='text md:text-xl text-black'>{title}</h2>
+        <h3 className='text-sm md:text-lg text-purple-200'>{institution}</h3>
+        <p className='text-sm md:text-md text-purple-200'>{duration}</p>
+        <p className='text-sm md:text-md text-purple-200'>{description}</p>
+      </div>
+      <div className={`absolute left-1.5 top-1.5 h-full w-full z-0 bg-gradient-to-r from-blue-400 to-red-400 via-purple-400 via-20%`} />
     </div>
   );
 };
-
-export default SkillItem;
 
 const Skills = forwardRef<HTMLDivElement>(function Skills(_props, ref) {
 
@@ -97,17 +102,17 @@ const Skills = forwardRef<HTMLDivElement>(function Skills(_props, ref) {
 
   const frameworks = [
     { label: 'React.js', icon: <img src={react} alt='React.js' className='h-8'/> },
-    { label: 'Next.js', icon: <img src={next} alt='Next.js' className='h-8 invert'/> },
-    { label: 'express.js', icon: <img src={express} alt='express.js' className='h-5 invert'/> },
+    { label: 'Next.js', icon: <img src={next} alt='Next.js' className='h-8'/> },
+    { label: 'express.js', icon: <img src={express} alt='express.js' className='h-5'/> },
     { label: 'TailwindCSS', icon: <img src={tailwind} alt='TailwindCSS' className='h-5'/> },
-    { label: '.NET Core', icon: <img src={dotnet} alt='.NET Core' className='h-3 invert'/> },
-    { label: 'Unity3D', icon: <img src={unity} alt='Unity3D' className='h-8 invert'/> }
+    { label: '.NET Core', icon: <img src={dotnet} alt='.NET Core' className='h-3'/> },
+    { label: 'Unity3D', icon: <img src={unity} alt='Unity3D' className='h-8'/> }
   ]
 
   const tools = [
-    { label: 'Git', icon: <img src={git} alt='Git' className='h-8 invert'/> },
-    { label: 'GitHub', icon: <img src={github} alt='GitHub' className='h-7'/> },
-    { label: 'PostgreSQL | MySQL | SQLite', icon: <img src={database} alt='Databases' className='h-8 invert'/> },
+    { label: 'Git', icon: <img src={git} alt='Git' className='h-8'/> },
+    { label: 'GitHub', icon: <img src={github} alt='GitHub' className='h-7 invert'/> },
+    { label: 'PostgreSQL | MySQL | SQLite', icon: <img src={database} alt='Databases' className='h-8'/> },
     { label: 'Docker', icon: <img src={docker} alt='Docker' className='h-5'/> },
     { label: 'CI/CD', icon: <img src={ci} alt='CI/CD' className='h-8'/> }
   ]
@@ -130,17 +135,17 @@ const Skills = forwardRef<HTMLDivElement>(function Skills(_props, ref) {
 
 
   return (
-    <div className="flex flex-col items-center justify-center h-full left-0 right-0 w-[40em] mx-auto absolute"
+    <div className="flex flex-col items-center justify-center md:h-full left-0 right-0 md:w-[40em] mx-auto"
          ref={ref}>
-      <h1 className='text-5xl text-white font-mono mr-auto'>Education</h1>
-      <div className='grid grid-cols-2 gap-6 my-4'>
+      <h1 className='text-4xl md:text-5xl text-white font-mono mr-auto'>Education</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 mr-auto md:ml-auto gap-6 my-4'>
         {educationEntries.map((entry, index) => (
           <EducationSection key={index} title={entry.title} institution={entry.institution} duration={entry.duration}
                             description={entry.description}/>
         ))}
       </div>
-      <h1 className='text-5xl text-white font-mono mr-auto'>Skills</h1>
-      <div className='grid grid-cols-2 gap-6 mt-4'>
+      <h1 className='text-4xl md:text-5xl text-white font-mono mr-auto'>Skills</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 mr-auto md:ml-auto gap-6 my-4'>
         <SkillSection title={"Programming Languages"} items={languages}/>
         <SkillSection title={"Technical Expertise"} items={technicalExpertise}/>
         <SkillSection title="Frameworks & Libraries" items={frameworks}/>

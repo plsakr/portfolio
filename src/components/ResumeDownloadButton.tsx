@@ -5,9 +5,9 @@ function ResumeDownloadButton() {
 
 
   return (
-    <div className='relative'>
+    <div className='relative ml-12 md:ml-0'>
     <a
-      className='relative left-0 top-0 z-10 mt-32 bg-white text-dark-100 h-12 w-64 flex justify-center items-center gap-4 px-4 hover:bg-black hover:text-white ease-in duration-75 hover:left-1.5 hover:top-1.5'
+      className='relative left-0 top-0 z-10 mt-16 md:mt-32 bg-white text-dark-100 h-12 w-64 flex justify-center items-center gap-4 px-4 hover:bg-black hover:text-white ease-in duration-75 hover:left-1.5 hover:top-1.5'
       href={resume} target='_blank'>
       <p>Download My Resume</p>
       {<HardDriveDownload/>}

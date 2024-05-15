@@ -19,24 +19,24 @@ interface ProjectProps {
 const Project: React.FC<ProjectProps> = ({ name, date, technologies, description, link }) => {
   return (
     <div className='relative'>
-      <div className='group bg-white h-full relative z-10 p-2 text-black hover:text-white hover:bg-black ease-in duration-75 hover:left-1.5 hover:top-1.5'>
+      <div className='group bg-white h-full relative z-10 p-2 text-black md:hover:text-white md:hover:bg-black ease-in duration-75 md:hover:left-1.5 md:hover:top-1.5'>
         <h2 className='text-xl'>{name}</h2>
         <p className='text-md'>{date}</p>
         <Dialog>
-          <DialogTrigger className='text-black group-hover:text-white'>
+          <DialogTrigger className='text-black md:group-hover:text-white'>
             View Details
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>{name}</DialogTitle>
-              <DialogDescription>
-                <ul>
+              <DialogTitle className='text-xl'>{name}</DialogTitle>
+              <DialogDescription className='text-md md:text-lg'>
+                <ul className='grid grid-cols-2 list-disc'>
                   {technologies.map((tech, index) => (
                     <li key={index}>{tech}</li>
                   ))}
                 </ul>
                 <p>{description}</p>
-                <a href={link} target="_blank" rel="noopener noreferrer">View Project</a>
+                <a href={link} className='text-blue-500' target="_blank" rel="noopener noreferrer">View Project</a>
               </DialogDescription>
             </DialogHeader>
           </DialogContent>
@@ -101,9 +101,9 @@ const Projects = forwardRef<HTMLDivElement>(function Projects(_props, ref) {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center h-full left-0 right-0 w-[40em] mx-auto absolute" ref={ref}>
+    <div className="flex flex-col items-center justify-center md:h-full left-0 right-0 bg-dark-100 md:w-[40em] mx-auto" ref={ref}>
       <h1 className='text-5xl text-white font-mono mr-auto'>Projects</h1>
-      <div className='grid grid-cols-2 gap-6 mt-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 md:px-0 px-2'>
         {projectEntries.map((entry, index) => (
           <Project key={index} name={entry.name} date={entry.date} technologies={entry.technologies} description={entry.description} link={entry.link} />
         ))}
