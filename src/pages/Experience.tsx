@@ -20,8 +20,8 @@ const ExperienceEntry: React.FC<ExperienceEntryProps> = ({ title, company, durat
   return (
     <div className='relative'>
       <div className='group bg-white relative z-10 p-2 text-black hover:text-white hover:bg-black ease-in duration-75 hover:left-1.5 hover:top-1.5'>
-        <h2 className='text-xl'>{title}</h2>
-        <h3 className='text-lg'>{company}</h3>
+        <h2 className='text-xl text-purple-200'>{title}</h2>
+        <h3 className='text-lg italic'>{company}</h3>
         <p className='text-md'>{duration}</p>
         <Dialog>
           <DialogTrigger className='text-black group-hover:text-white'>
@@ -29,8 +29,8 @@ const ExperienceEntry: React.FC<ExperienceEntryProps> = ({ title, company, durat
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle className='text-xl'>{title}</DialogTitle>
-              <DialogDescription className='text-md'>{description.split('\n').map((text) => <p>{text}</p>)}</DialogDescription>
+              <DialogTitle className='text-xl text-purple-200'>{title}</DialogTitle>
+              <DialogDescription className='text-lg'>{description.split('\n').map((text) => <p>{text}</p>)}</DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>

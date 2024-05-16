@@ -70,10 +70,10 @@ const EducationSection: React.FC<EducationSectionProps> = ({ title, institution,
   return (
     <div className='relative max-w-[20em]'>
       <div className='left-0 top-0 border relative bg-white z-10'>
-        <h2 className='text md:text-xl text-black'>{title}</h2>
-        <h3 className='text-sm md:text-lg text-purple-200'>{institution}</h3>
-        <p className='text-sm md:text-md text-purple-200'>{duration}</p>
-        <p className='text-sm md:text-md text-purple-200'>{description}</p>
+        <h2 className='text md:text-xl text-purple-200'>{title}</h2>
+        <h3 className='text-sm md:text-lg text-black'>{institution}</h3>
+        <p className='text-sm md:text-md text-black'>{duration}</p>
+        <p className='text-sm md:text-md text-black'>{description}</p>
       </div>
       <div className={`absolute left-1.5 top-1.5 h-full w-full z-0 bg-gradient-to-r from-blue-400 to-red-400 via-purple-400 via-20%`} />
     </div>
@@ -144,7 +144,7 @@ const Skills = forwardRef<HTMLDivElement>(function Skills(_props, ref) {
                             description={entry.description}/>
         ))}
       </div>
-      <h1 className='text-4xl md:text-5xl text-white mt-2 font-mono mr-auto'>Skills</h1>
+      <h1 className='text-4xl md:text-5xl text-white mt-6 font-mono mr-auto'>Skills</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 mr-auto relative'>
         <SkillSection title={"Programming Languages"} items={languages}/>
         <SkillSection title={"Technical Expertise"} items={technicalExpertise}/>

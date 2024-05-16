@@ -19,18 +19,20 @@ interface ProjectProps {
 const Project: React.FC<ProjectProps> = ({ name, date, technologies, description, link }) => {
   return (
     <div className='relative'>
-      <div className='group bg-white h-full relative z-10 p-2 text-black md:hover:text-white md:hover:bg-black ease-in duration-75 md:hover:left-1.5 md:hover:top-1.5'>
-        <h2 className='text-xl'>{name}</h2>
-        <p className='text-md'>{date}</p>
+      <div className='group bg-white flex flex-col justify-between items-start h-full relative z-10 p-2 text-black md:hover:text-white md:hover:bg-black ease-in duration-75 md:hover:left-1.5 md:hover:top-1.5'>
+        <div>
+          <h2 className='text-xl text-purple-200'>{name}</h2>
+          <p className='text-md'>{date}</p>
+        </div>
         <Dialog>
           <DialogTrigger className='text-black md:group-hover:text-white'>
             View Details
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle className='text-xl'>{name}</DialogTitle>
+              <DialogTitle className='text-xl text-purple-200'>{name}</DialogTitle>
               <DialogDescription className='text-md md:text-lg'>
-                <ul className='grid grid-cols-2 list-disc'>
+                <ul className='ml-5 grid grid-cols-2 list-disc'>
                   {technologies.map((tech, index) => (
                     <li key={index}>{tech}</li>
                   ))}
